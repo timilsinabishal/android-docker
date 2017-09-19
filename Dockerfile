@@ -4,7 +4,7 @@ LABEL maintainer "Bishal Timilsina<bishaltimilsina@gmail.com>"
 
 ARG ANDROID_COMPILE_SDK=26
 ARG ANDROID_BUILD_TOOLS=26.0.1
-ARG ANDROID_SDK_TOOLS=26.1.0
+ARG ANDROID_SDK_TOOLS=26.0.1
 
 ENV ANDROID_HOME /opt/android-sdk
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
