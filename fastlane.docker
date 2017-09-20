@@ -4,7 +4,7 @@ LABEL maintainer "Bishal Timilsina<bishaltimilsina@gmail.com>"
 
 ARG ANDROID_COMPILE_SDK=26
 ARG ANDROID_BUILD_TOOLS=26.0.1
-ARG ANDROID_SDK_TOOLS=26.0.1
+ARG ANDROID_SDK_TOOLS=3859397
 
 ENV ANDROID_HOME /opt/android-sdk
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
@@ -16,7 +16,7 @@ RUN apt-get --quiet update --yes && \
   rm -rf /var/cache/apt/* /var/lib/apt/lists
 
 RUN mkdir -p /opt/android-sdk && cd /opt/android-sdk && \
-  wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/tools_r${ANDROID_SDK_TOOLS}-linux.zip && \
+  wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip && \
   unzip android-sdk.zip && \
   rm android-sdk.zip && \
   echo y | tools/android --silent update sdk --no-ui --all --filter android-${ANDROID_COMPILE_SDK} && \
