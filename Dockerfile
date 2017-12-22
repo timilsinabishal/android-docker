@@ -18,9 +18,9 @@ RUN mkdir -p /opt/android-sdk && cd /opt/android-sdk && \
   wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip && \
   unzip android-sdk.zip && \
   rm android-sdk.zip && \
-  echo y | tools/android --silent update sdk --no-ui --all --filter android-${ANDROID_COMPILE_SDK} && \
-  echo y | tools/android --silent update sdk --no-ui --all --filter platform-tools && \
-  echo y | tools/android --silent update sdk --no-ui --all --filter build-tools-${ANDROID_BUILD_TOOLS} && \
-  echo y | tools/android --silent update sdk --no-ui --all --filter extra-android-m2repository && \
-  echo y | tools/android --silent update sdk --no-ui --all --filter extra-google-google_play_services && \
-  echo y | tools/android --silent update sdk --no-ui --all --filter extra-google-m2repository
+  echo y | tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" &&\
+  echo y | tools/bin/sdkmanager "platform-tools" &&\
+  echo y | tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}" &&\
+  echo y | tools/bin/sdkmanager "extras;android;m2repository" &&\
+  echo y | tools/bin/sdkmanager "extras;google;m2repository" &&\
+  echo y | tools/bin/sdkmanager "extras;google;google_play_services"
